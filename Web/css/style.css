@@ -1,0 +1,84 @@
+body 
+{ 
+ text-align:center; 
+ background-repeat: repeat; 
+ background-attachment: fixed; 
+ background-size: 100%; 
+} 
+
+
+h1{
+	
+	font-size: 50px;
+	text-transform: uppercase;
+}
+
+#layout1{
+	height: 600px;
+}
+
+#intro{
+	position: relative;
+	top: 40%;
+	color: #CC6733;
+}
+
+#header{
+	border: 5px solid #CC6733;
+	text-transform: uppercase;
+	padding: 2%;
+	margin: 0;
+	position: relative;
+	top: 60%;
+	width: 40%;
+	left: 30%;
+	color: #CC6733;
+}
+ 
+#layout2, #navLayout{
+	width: 80%;
+	margin-left: 10%;
+}
+
+#layout2{
+	background-color:whitesmoke;
+}
+
+.nav{
+	background-color: rgba(255, 255, 255, 0.175);
+	padding: 0;
+}
+
+.nav li{
+	padding: 0 2rem;
+}
+
+.nav li.active{
+	background-color:whitesmoke;
+}
+
+.titleDisplay{
+	padding-top: 5%;
+	padding-bottom: 2%;
+	display: flex;
+}
+
+.decoTitle{
+	width: 20%;
+}
+
+.essai1{
+	background-color: darkgreen;
+}
+
+.essai{
+	background-color: whitesmoke;
+}
+
+.admin{
+	text-align: left;
+}
+
+.decoFooter{
+	border-top: 1px black solid
+}
