@@ -57,8 +57,8 @@ class ChaptersController extends BackController
     {
       $comment = new Comment([
         'chapters' => $request->getData('chapters'),
-        'auteur' => $request->postData('pseudo'),
-        'contenu' => $request->postData('contenu')
+        'author' => $request->postData('pseudo'),
+        'content' => $request->postData('contenu')
       ]);
  
       if ($comment->isValid())
