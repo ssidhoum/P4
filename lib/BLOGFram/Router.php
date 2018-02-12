@@ -1,12 +1,13 @@
 <?php
 namespace BLOGFram;
 
+
 class Router
 {
   protected $routes = [];
- 
+
   const NO_ROUTE = 1;
- 
+
   public function addRoute(Route $route)
   {
     if (!in_array($route, $this->routes))
@@ -14,7 +15,7 @@ class Router
       $this->routes[] = $route;
     }
   }
- 
+
   public function getRoute($url)
   {
     foreach ($this->routes as $route)
@@ -27,7 +28,7 @@ class Router
         {
           $varsNames = $route->varsNames();
           $listVars = [];
- 
+
           // On crée un nouveau tableau clé/valeur
           // (clé = nom de la variable, valeur = sa valeur)
           foreach ($varsValues as $key => $match)
@@ -38,15 +39,15 @@ class Router
               $listVars[$varsNames[$key - 1]] = $match;
             }
           }
- 
+
           // On assigne ce tableau de variables � la route
           $route->setVars($listVars);
         }
- 
+
         return $route;
       }
     }
- 
+
     throw new \RuntimeException('Aucune route ne correspond à l\'URL', self::NO_ROUTE);
   }
 }

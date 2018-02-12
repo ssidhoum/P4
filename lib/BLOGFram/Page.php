@@ -1,5 +1,6 @@
 <?php
 namespace BLOGFram;
+
  
 class Page extends ApplicationComponent
 {

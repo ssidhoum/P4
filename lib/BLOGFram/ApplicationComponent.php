@@ -1,6 +1,7 @@
 <?php
 namespace BLOGFram;
 
+ 
 abstract class ApplicationComponent
 {
   protected $app;

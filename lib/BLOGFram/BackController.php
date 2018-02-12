@@ -1,6 +1,7 @@
 <?php
 namespace BLOGFram;
 
+ 
 abstract class BackController extends ApplicationComponent
 {
   protected $action = '';

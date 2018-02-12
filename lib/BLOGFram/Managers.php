@@ -1,5 +1,6 @@
 <?php
-namespace OCFram;
+namespace BLOGFram;
+
 
 class Managers
 {
