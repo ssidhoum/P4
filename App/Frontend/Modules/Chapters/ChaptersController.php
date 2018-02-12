@@ -77,4 +77,5 @@ class ChaptersController extends BackController
       $this->page->addVar('comment', $comment);
     }
 }
+	
 }
