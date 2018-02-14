@@ -34,10 +34,7 @@
             			<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           			</li>
           			<li class="nav-item">
-            			<a class="nav-link" href="#concept">Introduction</a>
-          			</li>
-          			<li class="nav-item">
-            			<a class="nav-link" href="#chapitres">Chapitres</a>
+            			<a class="nav-link" href="/summary">Sommaire</a>
           			</li>
  					<?php if ($user->isAuthenticated()) { ?>
           			<li><a href="/admin/">Admin</a></li>
@@ -50,7 +47,7 @@
   		<section id="layout2" class="container-fluid">
 
   			<section id="main">
-          	<?php if ($user->hasFlash()) echo '<p style="text-align: center;">', $user->getFlash(), '</p>'; ?>
+          	<?php if ($user->hasFlash()) echo '<div class="notif"><p>', $user->getFlash(), '</p></div>'; ?>
           
           	<?= $content ?>
         	</section>
@@ -58,7 +55,7 @@
   			<footer class="footer decoFooter">
       			<div class="container row">
         			<div class="col-8 admin">
-        				<a href="/admin/">se connecter </a>
+        				<a class="lienAdmin" href="/admin/">se connecter </a>
         			</div>
         			<div class="col-4">
         				2018-Jean FORTEROCHE

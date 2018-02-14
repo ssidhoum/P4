@@ -7,50 +7,50 @@ use \Entity\Comment;
  
 class ChaptersController extends BackController
 {
-  public function executeIndex(HTTPRequest $request)
-  {
-    $nombreChapters = $this->app->config()->get('nombre_chapters');
-    $nombreCaracteres = $this->app->config()->get('nombre_caracteres');
+  	public function executeIndex(HTTPRequest $request)
+  	{
+    	$nombreChapters = $this->app->config()->get('nombre_chapters');
+    	$nombreCaracteres = $this->app->config()->get('nombre_caracteres');
  
     // On ajoute une définition pour le titre.
-    $this->page->addVar('title', 'Liste des '.$nombreChapters.' dernières news');
+    	$this->page->addVar('title', 'Liste des '.$nombreChapters.' dernières news');
  
     // On récupère le manager des news.
-    $manager = $this->managers->getManagerOf('Chapters');
+    	$manager = $this->managers->getManagerOf('Chapters');
  
-    $listeChapters = $manager->getList(0, $nombreChapters);
+    	$listeChapters = $manager->getList(0, $nombreChapters);
  
-    foreach ($listeChapters as $chapters)
-    {
-      if (strlen($chapters->content()) > $nombreCaracteres)
-      {
-        $debut = substr($chapters->content(), 0, $nombreCaracteres);
-        $debut = substr($debut, 0, strrpos($debut, ' ')) . '...';
+    	foreach ($listeChapters as $chapters)
+    	{
+      	if (strlen($chapters->content()) > $nombreCaracteres)
+      	{
+        	$debut = substr($chapters->content(), 0, $nombreCaracteres);
+        	$debut = substr($debut, 0, strrpos($debut, ' ')) . '...';
  
-        $chapters->setContent($debut);
-      }
-    }
+        	$chapters->setContent($debut);
+      	}
+    	}
  
     // On ajoute la variable $listeNews à la vue.
     $this->page->addVar('listeChapters', $listeChapters);
   }
  
-  public function executeShow(HTTPRequest $request)
-  {
-    $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));
+  	public function executeShow(HTTPRequest $request)
+  	{
+    	$chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));
  
-    if (empty($chapters))
-    {
-      $this->app->httpResponse()->redirect404();
-    }
+    	if (empty($chapters))
+    	{
+      	$this->app->httpResponse()->redirect404();
+    	}
  
-    $this->page->addVar('title', $chapters->title());
-    $this->page->addVar('chapters', $chapters);
-    $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($chapters->id()));
-  }
+		$this->page->addVar('title', $chapters->title());
+	    $this->page->addVar('chapters', $chapters);
+    	$this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($chapters->id()));
+  	}
  
-  public function executeInsertComment(HTTPRequest $request)
-  {
+  	public function executeInsertComment(HTTPRequest $request)
+  	{
     $this->page->addVar('title', 'Ajout d\'un commentaire');
  
     if ($request->postExists('pseudo'))
@@ -77,5 +77,14 @@ class ChaptersController extends BackController
       $this->page->addVar('comment', $comment);
     }
 }
+	
+	public function executeSummary(HTTPRequest $request){
+		$this->page->addVar('title', 'Sommaire');
+
+   		$manager = $this->managers->getManagerOf('Chapters');
+		
+    	$this->page->addVar('listeChapters', $manager->getList());
+	
+	}
 	
 }
